@@ -121,7 +121,10 @@ import type { Config } from "tailwindcss";
 const config: Config = {`;
 
 const TAILWIND_WITH_VARIABLES = `
-	darkMode: ["class"],
+	darkMode: ['variant', [
+        '@media (prefers-color-scheme: dark) { &:not(.light *) }',
+        '&:is(.dark *)'
+ 	]],
 	content: ["./src/**/*.{html,js,svelte,ts}"],
 	safelist: ["dark"],
 	theme: {
@@ -192,7 +195,10 @@ export const TAILWIND_CONFIG = `import { fontFamily } from "tailwindcss/defaultT
 
 /** @type {import('tailwindcss').Config} */
 const config = {
-	darkMode: ["class"],
+	darkMode: ['variant', [
+        '@media (prefers-color-scheme: dark) { &:not(.light *) }',
+        '&:is(.dark *)'
+ 	]],
 	content: ["./src/**/*.{html,js,svelte,ts}"],
 	safelist: ["dark"],
 	theme: {
